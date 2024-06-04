@@ -6,11 +6,10 @@ import (
 )
 
 func main() {
-	a := facade.SubsystemA{}
-	b := facade.SubsystemB{}
-	c := facade.SubsystemC{}
+	a := &facade.SubsystemA{}
+	b := &facade.SubsystemB{}
+	c := &facade.SubsystemC{}
 
-	fmt.Println(a.OperationA())
-	fmt.Println(b.OperationB())
-	fmt.Println(c.OperationC())
+	f := facade.NewFacade(a, b, c)
+	fmt.Println(f.Operation())
 }
